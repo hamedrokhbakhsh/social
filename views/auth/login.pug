@@ -1,0 +1,32 @@
+extends ../layout/login-layout
+
+block content
+    .loginContainer
+        h1 Login
+        form.link#regForm( method="post", onsubmit="event.preventDefault(); validationForm();")
+            .warning
+                p.errorMessage #{error}
+
+
+            //input.form-input(type="text", placeholder="email or username", name="logUsername",value=payLoad.username )
+            //input.form-input(type="password", placeholder="password", name="logPassword", required="")
+
+
+            input.form-input(type="text", placeholder="email or username", name="logUsername",value="hrokhbakhsh" )
+            input.form-input(type="password", placeholder="password", name="logPassword", required="", value="12345")
+
+
+
+
+
+            input.btn.btn-primary(type="submit", value="submit")
+        a(href='/auth/register') Need an account? register here
+
+
+    script.
+        const form = document.getElementById('regForm');
+
+
+        function validationForm() {
+            form.submit();
+        }

@@ -1,0 +1,29 @@
+extends ../layout/login-layout
+
+block content
+    .loginContainer
+        h1 Register
+        form.link#regForm( method="post", onsubmit="event.preventDefault(); validationForm();")
+            .warning
+                p.errorMessage #{error}
+            input.form-input(type="text", placeholder="First Name",  name="firstName", required="" ,value=payLoad.firstName)
+            input.form-input(type="text", placeholder="Last Name", name="lastName", required="" ,value=payLoad.lastName)
+            input.form-input(type="text", placeholder="Username", name="userName", required="",value=payLoad.username)
+            input.form-input(type="text", placeholder=" E-Mail", name="email", required="" ,value=payLoad.email)
+            input#password.form-input(type="password", placeholder="Password", name="password", required="")
+            input#passwordConf.form-input(type="password", placeholder="Confirm Password", name="confirmPassword", required="")
+
+            input.btn.btn-primary(type="submit", value="submit")
+        a.link(href='/auth/login') Already have account ? login here
+
+
+    script.
+        const password = document.getElementById('password');
+        const confPassword = document.getElementById('passwordConf');
+        const form = document.getElementById('regForm');
+
+
+        function validationForm() {
+            form.submit();
+        }
+
